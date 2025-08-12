@@ -1,11 +1,12 @@
 import math
-
 import pygame
 from pygame import RESIZABLE
 
 pygame.init()
 
+pygame.display.set_caption('Factocraft')
 screen = pygame.display.set_mode((800, 600), RESIZABLE)
+
 
 camera_x = 0
 camera_y = 0
@@ -15,12 +16,16 @@ mouse_x = None
 mouse_y = None
 world_x = 0
 world_y = 0
+selector_pos = 0 #!!!
+
 
 # pixels between grid lines
 cell_size = 40
 
 #clicked cells
-clicked_cells = set()
+clicked_cells_red = set()
+clicked_cells_green = set()
+clicked_cells_blue = set()
 
 
 clock = pygame.time.Clock()
@@ -36,6 +41,7 @@ while running:
 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             mouse_x, mouse_y = event.pos
+
 
     #camera movement
     keys = pygame.key.get_pressed()
@@ -59,25 +65,65 @@ while running:
     camera_y += dy * speed * dt
 
     #mouse click
-    if mouse_y and mouse_x != None:
+    if mouse_y and mouse_x != None and selector_pos == 0:
         world_x = mouse_x + camera_x
         world_y = mouse_y + camera_y
 
         cell_x = world_x // cell_size
         cell_y = world_y // cell_size
 
-        clicked_cells.add((cell_x, cell_y))
+        clicked_cells_red.add((cell_x, cell_y))
+
+    elif mouse_y and mouse_x != None and selector_pos == cell_size:
+        world_x = mouse_x + camera_x
+        world_y = mouse_y + camera_y
+
+        cell_x = world_x // cell_size
+        cell_y = world_y // cell_size
+
+        clicked_cells_green.add((cell_x, cell_y))
+
+    elif mouse_y and mouse_x != None and selector_pos == cell_size * 2:
+        world_x = mouse_x + camera_x
+        world_y = mouse_y + camera_y
+
+        cell_x = world_x // cell_size
+        cell_y = world_y // cell_size
+
+        clicked_cells_blue.add((cell_x, cell_y))
+
+
 
     screen.fill((40, 40, 40))
     width, height = screen.get_size()
 
-    print(clicked_cells)
+
+    if keys[pygame.K_1]:
+        selector_pos = 0
+
+    if keys[pygame.K_2]:
+        selector_pos = cell_size * 1
+
+    if keys[pygame.K_3]:
+        selector_pos = cell_size * 2
 
     # Rectangels
-    for (cx, cy) in clicked_cells:
+    for (cx, cy) in clicked_cells_red:
+        screen_x = cx * cell_size - camera_x
+        screen_y = cy * cell_size - camera_y
+        pygame.draw.rect(screen, (255, 0, 0), (screen_x, screen_y, cell_size, cell_size))
+
+    for (cx, cy) in clicked_cells_green:
+        screen_x = cx * cell_size - camera_x
+        screen_y = cy * cell_size - camera_y
+        pygame.draw.rect(screen, (0, 255, 0), (screen_x, screen_y, cell_size, cell_size))
+
+    for (cx, cy) in clicked_cells_blue:
         screen_x = cx * cell_size - camera_x
         screen_y = cy * cell_size - camera_y
         pygame.draw.rect(screen, (0, 0, 255), (screen_x, screen_y, cell_size, cell_size))
+
+
 
     # Vertical lines
     for x in range(0, width + cell_size, cell_size):
@@ -90,6 +136,11 @@ while running:
         world_y = y + camera_y - (camera_y % cell_size)
         screen_y = y - (camera_y % cell_size)
         pygame.draw.line(screen, (200, 200, 200), (0, screen_y), (width, screen_y))
+
+    pygame.draw.rect(screen, (255, 0, 0), (0, 0, cell_size, cell_size))
+    pygame.draw.rect(screen, (0, 255, 0), (40, 0, cell_size, cell_size))
+    pygame.draw.rect(screen, (0, 0, 255), (80, 0, cell_size, cell_size))
+    pygame.draw.rect(screen,(0, 0, 0),(selector_pos, 0, cell_size, cell_size),5)
 
     mouse_x = None
     mouse_y = None
