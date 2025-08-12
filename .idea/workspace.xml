@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="fixed bugs with cube duplication">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="added more color options">
+      <change afterPath="$PROJECT_DIR$/events.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/state.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,6 +42,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="31A2hpliknbjunmlj5E10JmY0Fk" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -111,12 +124,21 @@
       <option name="project" value="LOCAL" />
       <updated>1755013488768</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added more color options">
+      <option name="closed" value="true" />
+      <created>1755024184632</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1755024184632</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added green rectangels when clicking on a cell in the grid" />
     <MESSAGE value="fixed bugs with cube duplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs with cube duplication" />
+    <MESSAGE value="added more color options" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more color options" />
   </component>
 </project>
