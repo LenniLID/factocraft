@@ -1,20 +1,18 @@
 import math
 
 import pygame
+from pygame import RESIZABLE
 
 pygame.init()
 
-window_width = 800
-window_height = 600
-
-screen = pygame.display.set_mode((window_width, window_height))
+screen = pygame.display.set_mode((800, 600), RESIZABLE)
 
 camera_x = 0
 camera_y = 0
 
 #just for defining
-mouse_x = 0
-mouse_y = 0
+mouse_x = None
+mouse_y = None
 world_x = 0
 world_y = 0
 
@@ -27,6 +25,7 @@ clicked_cells = set()
 
 clock = pygame.time.Clock()
 speed = 200
+
 
 running = True
 while running:
@@ -60,23 +59,25 @@ while running:
     camera_y += dy * speed * dt
 
     #mouse click
-    world_x = mouse_x + camera_x
-    world_y = mouse_y + camera_y
+    if mouse_y and mouse_x != None:
+        world_x = mouse_x + camera_x
+        world_y = mouse_y + camera_y
 
-    cell_x = world_x // cell_size
-    cell_y = world_y // cell_size
+        cell_x = world_x // cell_size
+        cell_y = world_y // cell_size
 
-    clicked_cells.add((cell_x, cell_y))
-    print(clicked_cells)
+        clicked_cells.add((cell_x, cell_y))
 
-    screen.fill((0, 0, 0))
+    screen.fill((40, 40, 40))
     width, height = screen.get_size()
 
+    print(clicked_cells)
 
+    # Rectangels
     for (cx, cy) in clicked_cells:
         screen_x = cx * cell_size - camera_x
         screen_y = cy * cell_size - camera_y
-        pygame.draw.rect(screen, (0, 255, 0), (screen_x, screen_y, cell_size, cell_size))
+        pygame.draw.rect(screen, (0, 0, 255), (screen_x, screen_y, cell_size, cell_size))
 
     # Vertical lines
     for x in range(0, width + cell_size, cell_size):
@@ -90,6 +91,7 @@ while running:
         screen_y = y - (camera_y % cell_size)
         pygame.draw.line(screen, (200, 200, 200), (0, screen_y), (width, screen_y))
 
-
+    mouse_x = None
+    mouse_y = None
     pygame.display.update()
 pygame.quit()
