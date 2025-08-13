@@ -1,5 +1,9 @@
 import pygame
 import state
+from state import camera_x
+
+cell_x = 0
+cell_y = 0
 
 def handle_events():
     for event in pygame.event.get():
@@ -36,3 +40,9 @@ def handle_keys(dt):
         state.selector_pos = 40
     elif keys[pygame.K_3]:
         state.selector_pos = 80
+
+    global cell_x, cell_y
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    cell_x = int((mouse_x + state.camera_x) // state.CELL_SIZE)
+    cell_y = int((mouse_y + state.camera_y) // state.CELL_SIZE)
+

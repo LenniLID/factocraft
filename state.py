@@ -24,4 +24,4 @@ clicked_cells_blue = set()
 # Ores
 ore_cells = set()
 ORE_THRESHOLD = 0.3
-SEED = random.randint(0, 9999999)
+SEED = random.randint(0, 32767)
