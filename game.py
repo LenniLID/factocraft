@@ -11,9 +11,9 @@ def process_mouse_click():
 
     if state.selector_pos == 0:
         state.clicked_cells_red.add((cell_x, cell_y))
-    elif state.selector_pos == state.CELL_SIZE:
+    elif state.selector_pos == 40:
         state.clicked_cells_green.add((cell_x, cell_y))
-    elif state.selector_pos == state.CELL_SIZE * 2:
+    elif state.selector_pos == 80:
         state.clicked_cells_blue.add((cell_x, cell_y))
 
     state.mouse_x = None

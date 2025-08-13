@@ -33,6 +33,6 @@ def handle_keys(dt):
     if keys[pygame.K_1]:
         state.selector_pos = 0
     elif keys[pygame.K_2]:
-        state.selector_pos = state.CELL_SIZE * 1
+        state.selector_pos = 40
     elif keys[pygame.K_3]:
-        state.selector_pos = state.CELL_SIZE * 2
+        state.selector_pos = 80
