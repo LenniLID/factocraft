@@ -20,6 +20,7 @@ while running:
     game.process_mouse_click()
 
     screen.fill((40, 40, 40))
+    render.draw_ores(screen)
     render.draw_cells(screen)
     render.draw_grid(screen)
     render.draw_selector(screen)
