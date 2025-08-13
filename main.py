@@ -1,3 +1,5 @@
+import os
+
 import pygame
 from pygame import RESIZABLE
 
@@ -13,6 +15,10 @@ screen = pygame.display.set_mode((state.WINDOW_WIDTH, state.WINDOW_HEIGHT), RESI
 clock = pygame.time.Clock()
 running = True
 
+
+red_arrow = pygame.image.load("red_arrow.png").convert_alpha()
+red_arrow = pygame.transform.scale(red_arrow, (state.CELL_SIZE, state.CELL_SIZE))
+
 while running:
     dt = clock.tick(60) / 1000
     running = events.handle_events()
@@ -21,7 +27,7 @@ while running:
 
     screen.fill((40, 40, 40))
     render.draw_ores(screen)
-    render.draw_cells(screen)
+    render.draw_cells(screen, red_arrow)
     render.draw_grid(screen)
     render.draw_selector(screen)
 

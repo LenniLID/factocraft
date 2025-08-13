@@ -4,7 +4,7 @@ import random
 # Display
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
-CELL_SIZE = 30
+CELL_SIZE = 40
 SPEED = 1200
 
 # Camera

@@ -1,7 +1,10 @@
+
+
 import pygame
 from noise import pnoise2
 
 import state
+
 
 def draw_grid(screen):
     width, height = screen.get_size()
@@ -13,16 +16,25 @@ def draw_grid(screen):
         screen_y = y - (state.camera_y % state.CELL_SIZE)
         pygame.draw.line(screen, (200, 200, 200), (0, screen_y), (width, screen_y))
 
-def draw_cells(screen):
-    for cells, color in [
-        (state.clicked_cells_red, (255, 0, 0)),
-        (state.clicked_cells_green, (0, 255, 0)),
-        (state.clicked_cells_blue, (0, 0, 255)),
-    ]:
-        for (cx, cy) in cells:
-            screen_x = cx * state.CELL_SIZE - state.camera_x
-            screen_y = cy * state.CELL_SIZE - state.camera_y
-            pygame.draw.rect(screen, color, (screen_x, screen_y, state.CELL_SIZE, state.CELL_SIZE))
+def draw_cells(screen, red_arrow):
+    # Draw red clicked cells
+    for (cx, cy) in state.clicked_cells_red:
+        screen_x = cx * state.CELL_SIZE - state.camera_x
+        screen_y = cy * state.CELL_SIZE - state.camera_y
+        screen.blit(red_arrow, (screen_x, screen_y))
+
+    # Draw green clicked cells
+    for (cx, cy) in state.clicked_cells_green:
+        screen_x = cx * state.CELL_SIZE - state.camera_x
+        screen_y = cy * state.CELL_SIZE - state.camera_y
+        pygame.draw.rect(screen, (0, 255, 0), (screen_x, screen_y, state.CELL_SIZE, state.CELL_SIZE))
+
+    # Draw blue clicked cells
+    for (cx, cy) in state.clicked_cells_blue:
+        screen_x = cx * state.CELL_SIZE - state.camera_x
+        screen_y = cy * state.CELL_SIZE - state.camera_y
+        pygame.draw.rect(screen, (0, 0, 255), (screen_x, screen_y, state.CELL_SIZE, state.CELL_SIZE))
+
 
 def draw_selector(screen):
     pygame.draw.rect(screen, (255, 0, 0), (0, 0, 40, 40))
