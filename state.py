@@ -4,7 +4,7 @@ import random
 # Display
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
-CELL_SIZE = 60
+CELL_SIZE = 30
 SPEED = 1000
 
 # Camera
@@ -26,3 +26,5 @@ rotation = 360
 ore_cells = set()
 ORE_THRESHOLD = 0.3
 SEED = random.randint(0, 32767)
+ORE_CHUNK_SIZE = 32
+ore_chunks = {}

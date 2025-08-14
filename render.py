@@ -2,6 +2,8 @@ import pygame
 from noise import pnoise2
 import state
 import events
+from game import generate_ore_chunk
+
 
 def draw_grid(screen):
     width, height = screen.get_size()
@@ -44,23 +46,28 @@ def draw_selector(screen):
 def draw_ores(screen):
     width, height = screen.get_size()
 
+    # visible cell range
     start_x = int(state.camera_x // state.CELL_SIZE) - 1
     end_x = int((state.camera_x + width) // state.CELL_SIZE) + 1
     start_y = int(state.camera_y // state.CELL_SIZE) - 1
     end_y = int((state.camera_y + height) // state.CELL_SIZE) + 1
 
-    for cx in range(start_x, end_x):
-        for cy in range(start_y, end_y):
-            value = pnoise2(cx / 20, cy / 20, octaves=3, base=state.SEED)
-            if value > state.ORE_THRESHOLD:
-                # save ore cell coordinates
-                state.ore_cells.add((cx, cy))
+    # visible chunk range
+    start_chunk_x = start_x // state.ORE_CHUNK_SIZE
+    end_chunk_x = end_x // state.ORE_CHUNK_SIZE
+    start_chunk_y = start_y // state.ORE_CHUNK_SIZE
+    end_chunk_y = end_y // state.ORE_CHUNK_SIZE
 
-                # draw it
+    for chunk_x in range(start_chunk_x, end_chunk_x + 1):
+        for chunk_y in range(start_chunk_y, end_chunk_y + 1):
+            if (chunk_x, chunk_y) not in state.ore_chunks:
+                state.ore_chunks[(chunk_x, chunk_y)] = generate_ore_chunk(chunk_x, chunk_y, state.SEED)
+
+            # draw ores in this chunk
+            for (cx, cy) in state.ore_chunks[(chunk_x, chunk_y)]:
                 screen_x = cx * state.CELL_SIZE - state.camera_x
                 screen_y = cy * state.CELL_SIZE - state.camera_y
                 pygame.draw.rect(screen, (139, 69, 19), (screen_x, screen_y, state.CELL_SIZE, state.CELL_SIZE))
-
 
 def ghost_preview(screen, red_arrow, green_arrow, blue_arrow):
     if state.selector_pos == 0:

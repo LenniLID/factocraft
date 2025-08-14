@@ -1,3 +1,5 @@
+from noise import pnoise2
+
 import state
 
 def process_mouse_click():
@@ -18,3 +20,16 @@ def process_mouse_click():
 
     state.mouse_x = None
     state.mouse_y = None
+
+def generate_ore_chunk(chunk_x, chunk_y, seed):
+    cells = set()
+    start_x = chunk_x * state.ORE_CHUNK_SIZE
+    start_y = chunk_y * state.ORE_CHUNK_SIZE
+
+    for cx in range(start_x, start_x + state.ORE_CHUNK_SIZE):
+        for cy in range(start_y, start_y + state.ORE_CHUNK_SIZE):
+            value = pnoise2(cx / 20, cy / 20, octaves=3, base=seed)
+            if value > state.ORE_THRESHOLD:
+                cells.add((cx, cy))
+
+    return cells
