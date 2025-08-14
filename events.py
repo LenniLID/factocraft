@@ -9,8 +9,15 @@ def handle_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             return False
+
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             state.mouse_x, state.mouse_y = event.pos
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_r:
+                state.rotation -= 90
+                if state.rotation == 0:
+                    state.rotation = 360
     return True
 
 def handle_keys(dt):
@@ -25,6 +32,13 @@ def handle_keys(dt):
         dy -= 1
     if keys[pygame.K_DOWN]:
         dy += 1
+
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_r:
+                state.rotation += 90
+                if state.rotation >= 360:
+                    state.rotation = 0
 
     length = (dx ** 2 + dy ** 2) ** 0.5
     if length:

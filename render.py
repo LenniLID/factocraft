@@ -15,22 +15,25 @@ def draw_grid(screen):
 
 def draw_cells(screen, red_arrow, green_arrow, blue_arrow):
     # Draw red clicked cells
-    for (cx, cy) in state.clicked_cells_red:
+    for (cx, cy, rot) in state.clicked_cells_red:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
-        screen.blit(red_arrow, (screen_x, screen_y))
+        rotated_image = pygame.transform.rotate(red_arrow, rot)
+        screen.blit(rotated_image, (screen_x, screen_y))
 
     # Draw green clicked cells
-    for (cx, cy) in state.clicked_cells_green:
+    for (cx, cy, rot) in state.clicked_cells_green:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
-        screen.blit(green_arrow, (screen_x, screen_y))
+        rotated_image = pygame.transform.rotate(green_arrow, rot)
+        screen.blit(rotated_image, (screen_x, screen_y))
 
     # Draw blue clicked cells
-    for (cx, cy) in state.clicked_cells_blue:
+    for (cx, cy, rot) in state.clicked_cells_blue:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
-        screen.blit(blue_arrow, (screen_x, screen_y))
+        rotated_image = pygame.transform.rotate(blue_arrow, rot)
+        screen.blit(rotated_image, (screen_x, screen_y))
 
 def draw_selector(screen):
     pygame.draw.rect(screen, (255, 0, 0), (0, 0, 40, 40))
@@ -50,9 +53,14 @@ def draw_ores(screen):
         for cy in range(start_y, end_y):
             value = pnoise2(cx / 20, cy / 20, octaves=3, base=state.SEED)
             if value > state.ORE_THRESHOLD:
+                # save ore cell coordinates
+                state.ore_cells.add((cx, cy))
+
+                # draw it
                 screen_x = cx * state.CELL_SIZE - state.camera_x
                 screen_y = cy * state.CELL_SIZE - state.camera_y
                 pygame.draw.rect(screen, (139, 69, 19), (screen_x, screen_y, state.CELL_SIZE, state.CELL_SIZE))
+
 
 def ghost_preview(screen, red_arrow, green_arrow, blue_arrow):
     if state.selector_pos == 0:
@@ -71,4 +79,4 @@ def ghost_preview(screen, red_arrow, green_arrow, blue_arrow):
     screen_x = events.cell_x * state.CELL_SIZE - state.camera_x
     screen_y = events.cell_y * state.CELL_SIZE - state.camera_y
 
-    screen.blit(ghost_image, (screen_x, screen_y))
+    screen.blit(pygame.transform.rotate(ghost_image, state.rotation), (screen_x, screen_y))

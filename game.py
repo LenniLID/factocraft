@@ -10,11 +10,11 @@ def process_mouse_click():
     cell_y = world_y // state.CELL_SIZE
 
     if state.selector_pos == 0:
-        state.clicked_cells_red.add((cell_x, cell_y))
+        state.clicked_cells_red.add((cell_x, cell_y, state.rotation))
     elif state.selector_pos == 40:
-        state.clicked_cells_green.add((cell_x, cell_y))
+        state.clicked_cells_green.add((cell_x, cell_y, state.rotation))
     elif state.selector_pos == 80:
-        state.clicked_cells_blue.add((cell_x, cell_y))
+        state.clicked_cells_blue.add((cell_x, cell_y, state.rotation))
 
     state.mouse_x = None
     state.mouse_y = None
