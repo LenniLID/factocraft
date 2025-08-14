@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="added ores">
-      <change beforePath="$PROJECT_DIR$/.idea/factocraft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/factocraft.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="added more color options">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/blue_arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/blue_arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/green_arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/green_arrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/red_arrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/red_arrow.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/state.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,43 +32,40 @@
     &quot;assignee&quot;: &quot;LenniLID&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/LenniLID/factocraft&quot;,
-    &quot;accountId&quot;: &quot;2808edbf-024c-4882-8786-ad06db139a79&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LenniLID/factocraft.git",
+    "accountId": "dd7bd380-e137-43ed-b491-bb013e730421"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="31A2hpliknbjunmlj5E10JmY0Fk" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/lennilid/PycharmProjects/factocraft/assets",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/lenni/PycharmProjects/factocraft&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -102,7 +96,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
+        <option value="bundled-python-sdk-4c141bd692a7-e2d783800521-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.26927.90" />
       </set>
     </attachedChunks>
   </component>
@@ -139,40 +133,13 @@
       <option name="project" value="LOCAL" />
       <updated>1755024184632</updated>
     </task>
-    <task id="LOCAL-00004" summary="cleaned up the code and splittet it into more files for better readability">
-      <option name="closed" value="true" />
-      <created>1755024339965</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1755024339965</updated>
-    </task>
-    <task id="LOCAL-00005" summary="cleaned up old file">
-      <option name="closed" value="true" />
-      <created>1755024380123</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1755024380123</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added ores">
-      <option name="closed" value="true" />
-      <created>1755101568112</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1755101568112</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added green rectangels when clicking on a cell in the grid" />
     <MESSAGE value="fixed bugs with cube duplication" />
     <MESSAGE value="added more color options" />
-    <MESSAGE value="cleaned up the code and splittet it into more files for better readability" />
-    <MESSAGE value="cleaned up old file" />
-    <MESSAGE value="added ores" />
-    <option name="LAST_COMMIT_MESSAGE" value="added ores" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more color options" />
   </component>
 </project>

@@ -1,4 +1,5 @@
 import os
+import time
 
 import pygame
 from pygame import RESIZABLE
@@ -9,9 +10,11 @@ import game
 import render
 
 pygame.init()
+pygame.font.init()
 pygame.display.set_caption('Factocraft')
 screen = pygame.display.set_mode((state.WINDOW_WIDTH, state.WINDOW_HEIGHT), RESIZABLE)
 
+font = pygame.font.SysFont(None, 24)
 clock = pygame.time.Clock()
 running = True
 
@@ -28,10 +31,11 @@ while running:
     running = events.handle_events()
     events.handle_keys(dt)
     game.process_mouse_click()
+    game.miner(dt)
 
     screen.fill((40, 40, 40))
     render.draw_ores(screen)
-    render.draw_cells(screen, red_arrow, green_arrow, blue_arrow)
+    render.draw_cells(screen, red_arrow, green_arrow, blue_arrow, font)
     render.ghost_preview(screen, red_arrow, green_arrow, blue_arrow)
     render.draw_grid(screen)
     render.draw_selector(screen)

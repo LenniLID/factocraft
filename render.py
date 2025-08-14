@@ -15,23 +15,33 @@ def draw_grid(screen):
         screen_y = y - (state.camera_y % state.CELL_SIZE)
         pygame.draw.line(screen, (200, 200, 200), (0, screen_y), (width, screen_y))
 
-def draw_cells(screen, red_arrow, green_arrow, blue_arrow):
-    # Draw red clicked cells
-    for (cx, cy, rot) in state.clicked_cells_red:
+def draw_cells(screen, red_arrow, green_arrow, blue_arrow, font):
+    for (cx, cy, rot) in state.placed_cells_red:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
+
+        # Draw the rotated red arrow
         rotated_image = pygame.transform.rotate(red_arrow, rot)
         screen.blit(rotated_image, (screen_x, screen_y))
 
+        # Get stored ore for this cell
+        stored_ore = state.red_cell_ore_storage.get((cx, cy), 0)
+
+        # Render the ore number on top
+        text_surf = font.render(str(stored_ore), True, (255, 255, 255))
+        text_rect = text_surf.get_rect(center=(screen_x + state.CELL_SIZE // 2,
+                                                   screen_y + state.CELL_SIZE // 2))
+        screen.blit(text_surf, text_rect)
+
     # Draw green clicked cells
-    for (cx, cy, rot) in state.clicked_cells_green:
+    for (cx, cy, rot) in state.placed_cells_green:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
         rotated_image = pygame.transform.rotate(green_arrow, rot)
         screen.blit(rotated_image, (screen_x, screen_y))
 
     # Draw blue clicked cells
-    for (cx, cy, rot) in state.clicked_cells_blue:
+    for (cx, cy, rot) in state.placed_cells_blue:
         screen_x = cx * state.CELL_SIZE - state.camera_x
         screen_y = cy * state.CELL_SIZE - state.camera_y
         rotated_image = pygame.transform.rotate(blue_arrow, rot)
