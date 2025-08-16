@@ -32,6 +32,8 @@ while running:
     events.handle_keys(dt)
     game.process_mouse_click()
     game.miner(dt)
+    game.con_belt(dt)
+    game.chest_collect()
 
     screen.fill((40, 40, 40))
     render.draw_ores(screen)

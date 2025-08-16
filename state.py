@@ -31,5 +31,18 @@ ore_chunks = {}
 # minor
 red_cell_ore_storage = {}
 ore_timer = 0
-stored_ore = 0
 
+# conveyor belt
+green_cell_ore_storage = {}
+ROT_TO_DIR = {
+    0:   (0, -1),
+    360: (0, -1),
+    90:  (-1, 0),
+    180: (0, 1),
+    270: (1, 0)
+}
+ORE_MOVE_DELAY = 1
+conveyor_timers = {}
+
+# chest
+chest_storage = {}

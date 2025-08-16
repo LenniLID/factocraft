@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="added more color options">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b83e3372-ff14-441a-91f8-8668c6f6a0bd" name="Changes" comment="miners (red arrows) can now mine ore and store it. ore amount is displayed on sprite">
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/render.py" beforeDir="false" afterPath="$PROJECT_DIR$/render.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/state.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,13 +133,22 @@
       <option name="project" value="LOCAL" />
       <updated>1755024184632</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="miners (red arrows) can now mine ore and store it. ore amount is displayed on sprite">
+      <option name="closed" value="true" />
+      <created>1755214562337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755214562337</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added green rectangels when clicking on a cell in the grid" />
     <MESSAGE value="fixed bugs with cube duplication" />
     <MESSAGE value="added more color options" />
-    <option name="LAST_COMMIT_MESSAGE" value="added more color options" />
+    <MESSAGE value="miners (red arrows) can now mine ore and store it. ore amount is displayed on sprite" />
+    <option name="LAST_COMMIT_MESSAGE" value="miners (red arrows) can now mine ore and store it. ore amount is displayed on sprite" />
   </component>
 </project>
