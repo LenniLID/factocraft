@@ -6,21 +6,24 @@ cell_x = 0
 cell_y = 0
 
 def handle_events():
+    """Handle discrete events like quit, mouse clicks, and key presses."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             return False
 
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             state.mouse_x, state.mouse_y = event.pos
 
-        if event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_r:
-                state.rotation -= 90
-                if state.rotation == 0:
-                    state.rotation = 360
+                # Rotate clockwise
+                state.rotation = (state.rotation + 90) % 360
+
     return True
 
+
 def handle_keys(dt):
+    """Handle continuous key presses like camera movement and hotbar selection."""
     keys = pygame.key.get_pressed()
     dx = dy = 0
 
@@ -33,21 +36,17 @@ def handle_keys(dt):
     if keys[pygame.K_DOWN]:
         dy += 1
 
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_r:
-                state.rotation += 90
-                if state.rotation >= 360:
-                    state.rotation = 0
-
+    # Normalize diagonal movement
     length = (dx ** 2 + dy ** 2) ** 0.5
     if length:
         dx /= length
         dy /= length
 
+    # Camera movement
     state.camera_x += dx * state.SPEED * dt
     state.camera_y += dy * state.SPEED * dt
 
+    # Hotbar selection
     if keys[pygame.K_1]:
         state.selector_pos = 0
     elif keys[pygame.K_2]:
@@ -55,8 +54,8 @@ def handle_keys(dt):
     elif keys[pygame.K_3]:
         state.selector_pos = 80
 
+    # Mouse to grid cell
     global cell_x, cell_y
     mouse_x, mouse_y = pygame.mouse.get_pos()
     cell_x = int((mouse_x + state.camera_x) // state.CELL_SIZE)
     cell_y = int((mouse_y + state.camera_y) // state.CELL_SIZE)
-

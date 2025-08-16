@@ -1,6 +1,3 @@
-import os
-import time
-
 import pygame
 from pygame import RESIZABLE
 
@@ -28,20 +25,25 @@ blue_arrow = pygame.transform.scale(blue_arrow, (state.CELL_SIZE, state.CELL_SIZ
 
 while running:
     dt = clock.tick(60) / 1000
+
+    # --- Input ---
     running = events.handle_events()
     events.handle_keys(dt)
     game.process_mouse_click()
+
+    # --- Logic ---
     game.miner(dt)
     game.con_belt(dt)
     game.chest_collect()
 
+    # --- Render ---
     screen.fill((40, 40, 40))
     render.draw_ores(screen)
+    render.draw_grid(screen)  # <- optional: grid under everything
     render.draw_cells(screen, red_arrow, green_arrow, blue_arrow, font)
     render.ghost_preview(screen, red_arrow, green_arrow, blue_arrow)
-    render.draw_grid(screen)
     render.draw_selector(screen)
 
-    pygame.display.update()
+    pygame.display.flip()
 
 pygame.quit()
